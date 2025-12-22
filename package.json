@@ -1,0 +1,12 @@
+{
+  "name": "multivendor-ecommerce",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w apps/web & npm run dev -w apps/api",
+    "build": "npm run build -w apps/web && npm run build -w apps/api"
+  }
+}
