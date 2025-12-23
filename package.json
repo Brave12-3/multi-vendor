@@ -2,11 +2,13 @@
   "name": "multivendor-ecommerce",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "apps/*"
   ],
   "scripts": {
-    "dev": "npm run dev -w apps/web & npm run dev -w apps/api",
-    "build": "npm run build -w apps/web && npm run build -w apps/api"
+    "dev": "npm run dev -w apps/api",
+    "build": "npm run build -w apps/api"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }
