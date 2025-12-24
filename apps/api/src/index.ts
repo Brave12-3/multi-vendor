@@ -4,6 +4,9 @@ import { env } from "./config/env.js";
 import { errorHandler } from "./middleware/error-handler.js";
 import authRoutes from "./routes/auth";
 import protectedRoutes from "./routes/protected-test.routes";
+import vendorRoutes from "./routes/vendor.routes";
+
+
 const app = express();
 
 // ======================
@@ -13,6 +16,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/auth", authRoutes);
 app.use("/test", protectedRoutes);
+app.use("/vendors", vendorRoutes);
 // ======================
 // HEALTH CHECK
 // ======================
