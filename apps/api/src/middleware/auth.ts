@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { verifyToken, JwtPayload, UserRole } from "../config/auth";
+import { verifyToken as verifyJwtToken, JwtPayload, UserRole } from "../config/auth";
 
 declare global {
   namespace Express {
@@ -21,7 +21,7 @@ export function requireAuth(
 
     try {
       const token = authHeader.split(" ")[1];
-      const payload = verifyToken(token);
+      const payload = verifyJwtToken(token);
 
       if (roles && !roles.includes(payload.role)) {
         return res.status(403).json({ message: "Forbidden" });
@@ -33,4 +33,8 @@ export function requireAuth(
       return res.status(401).json({ message: "Invalid token" });
     }
   };
+}
+
+export function verifyToken(req: Request, res: Response, next: NextFunction) {
+  // ...existing code...
 }
